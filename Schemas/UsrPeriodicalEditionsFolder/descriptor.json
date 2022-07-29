@@ -1,0 +1,13 @@
+﻿{
+  "Descriptor": {
+    "UId": "a70304f7-1d90-4074-a348-2265fe888095",
+    "Name": "UsrPeriodicalEditionsFolder",
+    "ModifiedOnUtc": "\/Date(1658929557000)\/",
+    "Parent": {
+      "UId": "d602bf96-d029-4b07-9755-63c8f5cb5ed5",
+      "Name": "BaseFolder"
+    },
+    "ManagerName": "EntitySchemaManager",
+    "Caption": "Группа Периодические издания"
+  }
+}

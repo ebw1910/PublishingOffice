@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Resources Culture="ru-RU">
+	<Group Type="String">
+		<Items>
+			<Item Name="Caption" Value="Страница редактирования: &quot;Периодические издания&quot;" />
+			<Item Name="LocalizableStrings.AddNewEditions.Value" Value="Добавить новые издания" />
+			<Item Name="LocalizableStrings.EverydayEditionsMaxCount.Value" Value="Превышено максимальное число изданий" />
+			<Item Name="LocalizableStrings.EverydayTravelToursMaxCountExceeded.Value" Value="Превышено максимальное число активных туров" />
+			<Item Name="LocalizableStrings.NewEditionsAddedMessage.Value" Value="Новые издания добавлены успешно" />
+			<Item Name="LocalizableStrings.Tabcd0c678aTabLabelTabCaption.Value" Value="Издания" />
+			<Item Name="LocalizableStrings.UsrSchema4f53524cDetailfe5b99c2DetailCaptionOnPage.Value" Value="Издание" />
+		</Items>
+	</Group>
+</Resources>

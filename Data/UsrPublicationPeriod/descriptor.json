@@ -1,0 +1,28 @@
+﻿{
+  "Descriptor": {
+    "UId": "52765ba4-a579-92bf-93aa-baccf7ab10ce",
+    "Name": "UsrPublicationPeriod",
+    "ModifiedOnUtc": "\/Date(1659077423000)\/",
+    "InstallType": 0,
+    "Schema": {
+      "UId": "b35c9929-6ea1-21ca-efc4-9a337f6c603c",
+      "Name": "UsrPublicationPeriod"
+    },
+    "Columns": [
+      {
+        "ColumnUId": "ae0e45ca-c495-4fe7-a39d-3ab7278e1617",
+        "IsForceUpdate": false,
+        "IsKey": true,
+        "ColumnName": "Id",
+        "DataTypeValueUId": "23018567-a13c-4320-8687-fd6f9e3699bd"
+      },
+      {
+        "ColumnUId": "0e545c19-64f9-166f-9a06-56e8eab6f2a9",
+        "IsForceUpdate": false,
+        "IsKey": false,
+        "ColumnName": "UsrPeriod",
+        "DataTypeValueUId": "325a73b8-0f47-44a0-8412-7606f78003ac"
+      }
+    ]
+  }
+}

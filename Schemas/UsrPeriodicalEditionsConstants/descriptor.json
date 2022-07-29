@@ -1,0 +1,10 @@
+﻿{
+  "Descriptor": {
+    "UId": "a325e75e-6728-d7a6-1dc1-dc3432ae327f",
+    "Name": "UsrPeriodicalEditionsConstants",
+    "ModifiedOnUtc": "\/Date(1658956424000)\/",
+    "ManagerName": "ClientUnitSchemaManager",
+    "Caption": "Константы",
+    "DependsOn": []
+  }
+}

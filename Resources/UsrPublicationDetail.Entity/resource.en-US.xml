@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Resources Culture="en-US">
+	<Group Type="String">
+		<Items>
+			<Item Name="Caption" Value="Издание деталь" />
+			<Item Name="Columns.UsrCirculation.Caption" Value="Тираж" />
+			<Item Name="Columns.UsrDate.Caption" Value="Дата выпуска" />
+			<Item Name="Columns.UsrPeriodicalEditions.Caption" Value="Периодические издания" />
+			<Item Name="Columns.UsrReleaseStatus.Caption" Value="Состояние выпуска" />
+			<Item Name="Columns.UsrResponsible.Caption" Value="Ответственный" />
+			<Item Name="EventsProcessSchema.Caption" Value="Бизнес-процесс" />
+		</Items>
+	</Group>
+</Resources>

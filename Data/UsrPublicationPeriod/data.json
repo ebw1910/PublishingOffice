@@ -1,0 +1,40 @@
+﻿{
+  "PackageData": [
+    {
+      "Row": [
+        {
+          "SchemaColumnUId": "ae0e45ca-c495-4fe7-a39d-3ab7278e1617",
+          "Value": "116e5704-5eb5-4677-bed0-df1f4c3bf256"
+        },
+        {
+          "SchemaColumnUId": "0e545c19-64f9-166f-9a06-56e8eab6f2a9",
+          "Value": "Ежедневно"
+        }
+      ]
+    },
+    {
+      "Row": [
+        {
+          "SchemaColumnUId": "ae0e45ca-c495-4fe7-a39d-3ab7278e1617",
+          "Value": "b3e72c65-78cd-4418-b7ec-9fea1ec72383"
+        },
+        {
+          "SchemaColumnUId": "0e545c19-64f9-166f-9a06-56e8eab6f2a9",
+          "Value": "Еженедельно"
+        }
+      ]
+    },
+    {
+      "Row": [
+        {
+          "SchemaColumnUId": "ae0e45ca-c495-4fe7-a39d-3ab7278e1617",
+          "Value": "b4ef61da-4076-4805-84b7-87dcde325282"
+        },
+        {
+          "SchemaColumnUId": "0e545c19-64f9-166f-9a06-56e8eab6f2a9",
+          "Value": "Ежемесячно"
+        }
+      ]
+    }
+  ]
+}
