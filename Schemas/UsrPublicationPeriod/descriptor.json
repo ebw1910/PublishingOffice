@@ -1,0 +1,13 @@
+﻿{
+  "Descriptor": {
+    "UId": "b35c9929-6ea1-21ca-efc4-9a337f6c603c",
+    "Name": "UsrPublicationPeriod",
+    "ModifiedOnUtc": "\/Date(1658918703000)\/",
+    "Parent": {
+      "UId": "1bab9dcf-17d5-49f8-9536-8e0064f1dce0",
+      "Name": "BaseEntity"
+    },
+    "ManagerName": "EntitySchemaManager",
+    "Caption": "Периодичность изданий"
+  }
+}

@@ -1,0 +1,9 @@
+﻿{
+  "Descriptor": {
+    "UId": "407d337c-297a-28d6-13d8-4f9b37f41944",
+    "Name": "UsrEditionsService",
+    "ModifiedOnUtc": "\/Date(1659075180000)\/",
+    "ManagerName": "SourceCodeSchemaManager",
+    "Caption": "Веб-сервис получения количества изданий"
+  }
+}

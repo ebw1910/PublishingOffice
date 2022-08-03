@@ -1,0 +1,13 @@
+﻿{
+  "Descriptor": {
+    "UId": "46fe2193-9148-362a-5497-3d227582dfd9",
+    "Name": "UsrPublicationStatus",
+    "ModifiedOnUtc": "\/Date(1658918809000)\/",
+    "Parent": {
+      "UId": "1bab9dcf-17d5-49f8-9536-8e0064f1dce0",
+      "Name": "BaseEntity"
+    },
+    "ManagerName": "EntitySchemaManager",
+    "Caption": "Статус публикации"
+  }
+}
