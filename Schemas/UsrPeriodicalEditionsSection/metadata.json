@@ -1,5 +1,5 @@
 = MetaData.Schema.UId "394a2d6b-053e-4f3c-a325-3c9bb012d306"
-= MetaData.Schema.A2 "UsrPeriodicalEditionsd4266e20Section"
+= MetaData.Schema.A2 "UsrPeriodicalEditionsSection"
 + MetaData.Schema.B2 {
   "UId": "90d7505a-9413-47a2-860e-20fe2b52a8eb",
   "A2": "Caption",

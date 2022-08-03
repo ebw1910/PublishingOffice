@@ -1,4 +1,4 @@
-define("UsrUsrPublicationDetailade37796Page", [], function() {
+define("UsrPublicationDetailPage", [], function() {
 	return {
 		entitySchemaName: "UsrPublicationDetail",
 		attributes: {},
@@ -10,7 +10,7 @@ define("UsrUsrPublicationDetailade37796Page", [], function() {
 		diff: /**SCHEMA_DIFF*/[
 			{
 				"operation": "insert",
-				"name": "UsrCirculationdb34a7c5-a354-412a-81e8-68bb51488030",
+				"name": "UsrCirculation",
 				"values": {
 					"layout": {
 						"colSpan": 12,
@@ -27,7 +27,7 @@ define("UsrUsrPublicationDetailade37796Page", [], function() {
 			},
 			{
 				"operation": "insert",
-				"name": "UsrReleaseStatus8965bcc5-d23f-48d4-afae-fab511317721",
+				"name": "UsrReleaseStatus",
 				"values": {
 					"layout": {
 						"colSpan": 12,
@@ -44,7 +44,7 @@ define("UsrUsrPublicationDetailade37796Page", [], function() {
 			},
 			{
 				"operation": "insert",
-				"name": "UsrPeriodicalEditionseaae6a16-8ca5-412b-95cc-d0ac31319ba8",
+				"name": "UsrPeriodicalEdition",
 				"values": {
 					"layout": {
 						"colSpan": 12,
@@ -61,7 +61,7 @@ define("UsrUsrPublicationDetailade37796Page", [], function() {
 			},
 			{
 				"operation": "insert",
-				"name": "UsrResponsibleaa2aeb7f-c097-43c6-a1ab-28e43d5a47e1",
+				"name": "UsrResponsible",
 				"values": {
 					"layout": {
 						"colSpan": 12,
@@ -78,7 +78,7 @@ define("UsrUsrPublicationDetailade37796Page", [], function() {
 			},
 			{
 				"operation": "insert",
-				"name": "CreatedOn20d55434-9960-4286-aefe-0c96365f2538",
+				"name": "CreatedOn",
 				"values": {
 					"layout": {
 						"colSpan": 12,

@@ -1,4 +1,4 @@
-define("UsrSchema4f53524cDetail", ["ConfigurationGrid", "ConfigurationGridGenerator",
+define("UsrSchemaEditionsDetail", ["ConfigurationGrid", "ConfigurationGridGenerator",
 "ConfigurationGridUtilities"], function() {
 	return {
 		entitySchemaName: "UsrPublicationDetail",

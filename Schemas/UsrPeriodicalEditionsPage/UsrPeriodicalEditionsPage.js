@@ -1,5 +1,5 @@
-define("UsrPeriodicalEditions1Page", ["ProcessModuleUtilities", "UsrPeriodicalEditionsConstants"],
-	function(ProcessModuleUtilities, UsrPeriodicalEditionsConstants) {
+define("UsrPeriodicalEditionsPage", ["ProcessModuleUtilities", "UsrPeriodicalEditionsConstantsJs"],
+	function(ProcessModuleUtilities, UsrPeriodicalEditionsConstantsJs) {
 		return {
           entitySchemaName: "UsrPeriodicalEditions",
         attributes: {
@@ -18,8 +18,8 @@ define("UsrPeriodicalEditions1Page", ["ProcessModuleUtilities", "UsrPeriodicalEd
 					"detailColumn": "UsrPeriodicalEditions"
 				}
 			},
-			"UsrSchema4f53524cDetail": {
-				"schemaName": "UsrSchema4f53524cDetail",
+			"UsrSchemaEditionsDetail": {
+				"schemaName": "UsrSchemaEditionsDetail",
 				"entitySchemaName": "UsrPublicationDetail",
 				"filter": {
 					"detailColumn": "UsrPeriodicalEditions",
@@ -29,6 +29,9 @@ define("UsrPeriodicalEditions1Page", ["ProcessModuleUtilities", "UsrPeriodicalEd
 		}/**SCHEMA_DETAILS*/,
 		businessRules: /**SCHEMA_BUSINESS_RULES*/{}/**SCHEMA_BUSINESS_RULES*/,
 		methods: {
+			    /**
+				 * Пререопределение метода init.
+				 */
 				init: function () {
 					this.callParent(arguments);
 					this.subscribeOnEvents();
@@ -38,13 +41,16 @@ define("UsrPeriodicalEditions1Page", ["ProcessModuleUtilities", "UsrPeriodicalEd
 						}
 					}, this);
 				},
+				/**
+				 * Проверка на колличество ежедневных активных изданий.
+				 */
 				asyncValidate: function (callback, scope) {
 					this.callParent([function () {
 						var validationResult = {
 							success: true
 						};
 
-						if (this.$UsrPublicationPeriod?.value == UsrPeriodicalEditionsConstants.Interval.Everyday) {
+						if (this.$UsrPublicationPeriod?.value == UsrPeriodicalEditionsConstantsJs.Interval.Everyday) {
 							var esq = Ext.create("Terrasoft.EntitySchemaQuery", {
 								rootSchemaName: "UsrPeriodicalEditions"
 							});
@@ -52,7 +58,7 @@ define("UsrPeriodicalEditions1Page", ["ProcessModuleUtilities", "UsrPeriodicalEd
 							esq.filters.addItem(Terrasoft.createColumnFilterWithParameter(
 								Terrasoft.ComparisonType.EQUAL, "UsrIsActive", 1));
 							esq.filters.addItem(Terrasoft.createColumnFilterWithParameter(
-								Terrasoft.ComparisonType.EQUAL, "UsrPublicationPeriod", UsrPeriodicalEditionsConstants.Interval.Everyday));
+								Terrasoft.ComparisonType.EQUAL, "UsrPublicationPeriod", UsrPeriodicalEditionsConstantsJs.Interval.Everyday));
 							esq.filters.addItem(Terrasoft.createColumnFilterWithParameter(
 								Terrasoft.ComparisonType.NOT_EQUAL, "Id", this.$Id));
 
@@ -64,7 +70,7 @@ define("UsrPeriodicalEditions1Page", ["ProcessModuleUtilities", "UsrPeriodicalEd
 										.items[0]
 										.get("CountAll");
 
-									if (this.isEditingPublicationRecordAllowed(count)) {
+									if (this.isEditingPublicationRecordForbidden(count)) {
 										validationResult.message = this.get("Resources.Strings.EverydayEditionsMaxCount");
 										validationResult.success = false;
 									}
@@ -76,15 +82,17 @@ define("UsrPeriodicalEditions1Page", ["ProcessModuleUtilities", "UsrPeriodicalEd
 						}
 					}, this]);
 				},
-				isEditingPublicationRecordAllowed: function (count) {
-					if ((count >= this.$SysEverydayEditionsMaxCount) &&
+				/**
+				 * Сравнение ежедневных активных туров со значение системной настроки.
+				 */
+				isEditingPublicationRecordForbidden: function (count) {
+					return ((count >= this.$SysEverydayEditionsMaxCount) &&
 						(this.$UsrIsActive == true) &&
-						(this.$UsrPublicationPeriod.value == UsrPeriodicalEditionsConstants.Interval.Everyday)) {
-						return true;
-					} else {
-						return false;
-					}
+						(this.$UsrPublicationPeriod.value == UsrPeriodicalEditionsConstantsJs.Interval.Everyday)) ? true : false
 				},
+				/**
+				 * Добавление нового издания
+				 */
 				addNewEditions: function () {
 					var selectedId = this.get("Id");;
 					var config = {
@@ -92,13 +100,13 @@ define("UsrPeriodicalEditions1Page", ["ProcessModuleUtilities", "UsrPeriodicalEd
 						parameters: {
 							SelectedEditionsId: selectedId
 						},
-						callback: function () {
-					
-						},
 						scope: this
 					};
 					ProcessModuleUtilities.executeProcess(config);
 				},
+				/**
+				 * Пререопределение метода getActions.
+				 */
 				getActions: function () {
 					let actionMenuItems = this.callParent(arguments);
 					let separator = this.getButtonMenuItem({ Type: "Terrasoft.MenuSeparator", Caption: "" });
@@ -112,16 +120,25 @@ define("UsrPeriodicalEditions1Page", ["ProcessModuleUtilities", "UsrPeriodicalEd
 					actionMenuItems.addItem(newAction);
 					return actionMenuItems;
 				},
+				/**
+				 * Подписка на событие открытия окна
+				 */
 				subscribeOnEvents: function () {
 					Terrasoft.ServerChannel.on(Terrasoft.EventName.ON_MESSAGE, this.onProcessMessage, this);
 				},
+				/**
+				 * Подписка на события закрытия окна
+				 */
 				destroy: function () {
 					Terrasoft.ServerChannel.un(Terrasoft.EventName.ON_MESSAGE, this.onServerMessageReceived, this);
 					this.callParent(arguments);
 				},
+				/**
+				 * Получение сообщения от БП.
+				 */
 				onProcessMessage: function (scope, message) {
-					if (message && message.Header.Sender == "NewEditionsAdded") {
-						this.updateDetail({ detail: "UsrSchema4f53524cDetail" });
+					if (message && message.Header.Sender == "NewEditionsAdded" && JSON.parse(message.Body).Operation === 'UpdateDetail' ) {
+						this.updateDetail({ detail: "UsrSchemaEditionsDetail" });
 						Terrasoft.showInformation(this.get("Resources.Strings.NewEditionsAddedMessage"));
 						this.hideBodyMask();
 					}
@@ -131,7 +148,7 @@ define("UsrPeriodicalEditions1Page", ["ProcessModuleUtilities", "UsrPeriodicalEd
 		diff: /**SCHEMA_DIFF*/[
 			{
 				"operation": "insert",
-				"name": "UsrResponsible19e512ac-424e-418e-a87c-74463bf75a13",
+				"name": "UsrResponsible",
 				"values": {
 					"layout": {
 						"colSpan": 24,
@@ -148,7 +165,7 @@ define("UsrPeriodicalEditions1Page", ["ProcessModuleUtilities", "UsrPeriodicalEd
 			},
 			{
 				"operation": "insert",
-				"name": "UsrIsActive38ea743b-2bb4-45ca-933e-c72ce21f4ea9",
+				"name": "UsrIsActive",
 				"values": {
 					"layout": {
 						"colSpan": 12,
@@ -165,7 +182,7 @@ define("UsrPeriodicalEditions1Page", ["ProcessModuleUtilities", "UsrPeriodicalEd
 			},
 			{
 				"operation": "insert",
-				"name": "UsrPublicationPeriod16009cad-b38c-4c42-9541-b41bf4c352f8",
+				"name": "UsrPublicationPeriod",
 				"values": {
 					"layout": {
 						"colSpan": 12,
@@ -182,7 +199,7 @@ define("UsrPeriodicalEditions1Page", ["ProcessModuleUtilities", "UsrPeriodicalEd
 			},
 			{
 				"operation": "insert",
-				"name": "UsrCommentary13414801-1e70-4e1e-b1da-7496677487cd",
+				"name": "UsrCommentary",
 				"values": {
 					"layout": {
 						"colSpan": 12,
@@ -199,7 +216,7 @@ define("UsrPeriodicalEditions1Page", ["ProcessModuleUtilities", "UsrPeriodicalEd
 			},
 			{
 				"operation": "insert",
-				"name": "UsrCodecdb2f011-97bd-4438-9747-61d0a4ff83ab",
+				"name": "UsrCode",
 				"values": {
 					"layout": {
 						"colSpan": 12,
@@ -230,7 +247,7 @@ define("UsrPeriodicalEditions1Page", ["ProcessModuleUtilities", "UsrPeriodicalEd
 			},
 			{
 				"operation": "insert",
-				"name": "UsrSchema4f53524cDetail",
+				"name": "UsrSchemaEditionsDetail",
 				"values": {
 					"itemType": 2,
 					"markerValue": "added-detail"

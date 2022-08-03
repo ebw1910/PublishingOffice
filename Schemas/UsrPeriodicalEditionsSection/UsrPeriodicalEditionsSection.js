@@ -1,4 +1,4 @@
-define("UsrPeriodicalEditionsd4266e20Section", [], function() {
+define("UsrPeriodicalEditionsSection", [], function() {
 	return {
 		entitySchemaName: "UsrPeriodicalEditions",
 		details: /**SCHEMA_DETAILS*/{}/**SCHEMA_DETAILS*/,

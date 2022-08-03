@@ -1,5 +1,5 @@
 = MetaData.Schema.UId "970b7040-3fbf-4eba-9ce5-839134aa7fc5"
-= MetaData.Schema.A2 "UsrPeriodicalEditions1Page"
+= MetaData.Schema.A2 "UsrPeriodicalEditionsPage"
 + MetaData.Schema.B2 {
   "UId": "9ac0cc91-1b73-4655-842f-8e528dfc3504",
   "A2": "Tabcd0c678aTabLabelTabCaption",
